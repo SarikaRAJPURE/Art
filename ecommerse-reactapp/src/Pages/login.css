@@ -1,0 +1,61 @@
+.Login {
+  width: 100vw;
+  height: 100vh;
+  /*  background: url('../../public/images/morpeice.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;   */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fcf1ed;
+}
+center {
+  margin: 25px;
+  font-size: large;
+}
+.LogWrapper {
+  padding: 20px;
+  width: 20%;
+  border: 2px solid lightgray;
+  border-radius: 10px;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.RegTitle {
+  font-style: 24px;
+  font-weight: 300;
+}
+
+.LogInput {
+  flex: 1;
+  min-width: 50%;
+  margin: 10px 10px;
+  padding: 10px;
+}
+
+.RegButon {
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
+  background-color: teal;
+  color: white;
+  cursor: pointer;
+  margin: 10px 10px;
+}
+
+.Link {
+  margin: 10px 0px;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+}
+a {
+  margin-left: 5px;
+}

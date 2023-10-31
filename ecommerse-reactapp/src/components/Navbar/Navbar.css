@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  font-family: "Urbanist", sans-serif;
+}
+.navbar-container {
+  height: 80px;
+  @media only screen and (max-width: 380px) {
+    display: none;
+  }
+}
+.navbar-wrapper {
+  padding: 0px 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background-color: #f5fafd; */
+  box-shadow: 0 1px 3px -2px black;
+}
+
+.language {
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.search-container {
+  border: 0.5px solid gray;
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  padding: 5px;
+}
+
+.NavInput {
+  border: none;
+}
+.Nav-Center {
+  flex: 1;
+  text-align: center;
+}
+
+.Logo {
+  font-weight: bold;
+}
+.search {
+  color: grey;
+  font-size: 16px;
+}
+.Nav-Left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.Nav-Right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.menu-item {
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 25px;
+}
+.Carticon {
+  position: relative;
+  width: 100px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 25px;
+}
+.badge {
+  content: "100";
+  position: absolute;
+  background: rgba(0, 0, 255, 1);
+  width: 1rem;
+  height: 1rem;
+  top: 2.6rem;
+  right: 2.8rem;
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 50%;
+  color: white;
+  border: 1px solid blue;
+}
+.link-container {
+  display: flex;
+  flex-direction: row;
+}

@@ -1,0 +1,16 @@
+.ProductFilterContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.Select {
+  padding: 5px;
+  margin-right: 20px;
+}
+.FilterText {
+  font-style: 10px;
+  font-weight: 600;
+  margin: 20px;
+}
+.FilterTitle {
+  margin: 10px;
+}

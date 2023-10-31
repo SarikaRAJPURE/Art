@@ -1,0 +1,60 @@
+.Footer {
+  display: flex;
+  box-shadow: 3px -0.2px 0 1px lightgray;
+}
+.LeftFooter {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.RightFooter {
+  flex: 1;
+  padding: 20px;
+}
+.CenterFooter {
+  flex: 1;
+  padding: 20px;
+}
+.footerTitle {
+  margin-bottom: 30px;
+}
+.footerList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.ListItem {
+  width: 50%;
+  margin-bottom: 10px;
+}
+.Description {
+  margin: 20px 0px;
+}
+.SocialContainer {
+  display: flex;
+}
+.SocialIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ContactItem {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.Payment {
+  width: 50%;
+}
+.white {
+  color: white;
+}

@@ -1,0 +1,84 @@
+.ProductWrapper {
+  padding: 50px;
+  display: flex;
+}
+.ProductImgContainer {
+  flex: 1;
+}
+.ProductImg {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+.FilterContainer {
+  margin: 20px 0px;
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
+}
+.Filter {
+  display: flex;
+  align-items: center;
+}
+.ProductInfoContainer {
+  flex: 1;
+  padding: 20px 100px;
+}
+.ProdTitle {
+  font-weight: 200;
+}
+.ProdDescription {
+  margin: 20px 0px;
+}
+.Price {
+  font-weight: 100;
+  font-size: 40px;
+}
+.ColorFilterText,
+.SizeFilterText {
+  font-style: 20px;
+  font-weight: 200;
+}
+.FilterColor {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 0px 5px;
+  cursor: pointer;
+}
+.FilterSize {
+  margin-left: 10px;
+  padding: 5px;
+}
+.AddContainer {
+  display: flex;
+  width: 40%;
+  align-items: center;
+  justify-content: space-between;
+}
+.AmountContainer {
+  display: flex;
+  align-items: center;
+  font-weight: 700;
+}
+.Amount {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid teal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 5px;
+}
+.CartButton {
+  padding: 15px;
+  border: 2px solid teal;
+  background-color: white;
+  cursor: pointer;
+  font-weight: bolder;
+  &:hover {
+    background-color: teal;
+    color: white;
+  }
+}

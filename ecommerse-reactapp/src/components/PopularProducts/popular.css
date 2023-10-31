@@ -1,0 +1,11 @@
+.popular h1{
+    margin: 20px 20px;
+}
+
+.popular-products{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,450px));
+    gap: 2rem;
+    margin: 20px;
+}

@@ -1,0 +1,34 @@
+.CategoryItemContainer{
+    flex: 1;
+    margin: 5px;
+    height: 70vh;
+    position: relative;
+}
+.Image{
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.Info{
+position: absolute;
+top:0;
+left: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+width: 100%;
+height: 100%;
+}
+.Title{
+color: white;
+margin: 20px;
+}
+.Button{
+border: none;
+padding: 10px;
+background-color: white;
+color: gray;
+cursor: pointer;
+font-weight: 600;
+}
