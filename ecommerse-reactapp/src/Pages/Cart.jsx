@@ -5,6 +5,7 @@ import "./cart.css";
 import { useSelector } from "react-redux";
 import { addProduct, removeProduct } from '../Redux/cartRedux'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom';
 //import StripeCheckout from "react-stripe-checkout"
 
 const Cart = () => {
@@ -24,7 +25,8 @@ const Cart = () => {
         <div className="CartWrapper">
           <h1 className="CartTitle">Shopping Cart</h1>
           <div className="Top">
-            <button className="TopButton" style={{ backgroundColor: "white", color: "black" }}>CONTINUE SHOPPING</button>
+            <Link to='/shop'><button className="TopButton" style={{ backgroundColor: "white", color: "black" }}>
+              CONTINUE SHOPPING</button></Link>
             <div className="TopTexts">
               <span className="TopText">
                 Shopping Bag(2)</span>
