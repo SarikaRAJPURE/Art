@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import "./cart.css";
 import { useSelector } from "react-redux";
-import { addProduct, removeProduct } from '../Redux/cartRedux'
+import { removeProduct, getTotal, increaseItemQuantity, decreaseItemQuantity } from '../Redux/cartRedux'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
 //import StripeCheckout from "react-stripe-checkout"
@@ -12,11 +12,10 @@ const Cart = () => {
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(getTotal());
+  }, /* [cart] */);
 
-
-  const handleRemoveFromCart = () => {
-    dispatch(removeProduct());
-  }
 
   return (
     <div>
@@ -28,7 +27,7 @@ const Cart = () => {
               CONTINUE SHOPPING</button></Link>
             <div className="TopTexts">
               <span className="TopText">
-                Shopping Bag(2)</span>
+                Shopping Bag({cart.products.length})</span>
               <span className="TopText">
                 Your Wishlist(5)</span>
             </div>
@@ -37,7 +36,7 @@ const Cart = () => {
           <div className="Bottom">
             <div className="CartInfo">
               {
-                cart.cartproducts.map(product => (
+                cart.products.map(product => (
                   <div className="CartProduct" key={product._id}>
                     <div className="ProductDetail">
                       <img src={product.img} alt={product.name} />
@@ -60,16 +59,16 @@ const Cart = () => {
                     </div>
                     <div className="PriceDetail">
                       <div className="ProductAmountContainer">
-                        <FontAwesomeIcon icon={faMinus} onClick={() => (product.quantity -= 1)} />
+                        <FontAwesomeIcon icon={faMinus} onClick={() => dispatch(decreaseItemQuantity(product._id))} />
                         {product.quantity}
-                        <FontAwesomeIcon icon={faPlus} onClick={() => (product.quantity += 1)} />
+                        <FontAwesomeIcon icon={faPlus} onClick={() => dispatch(increaseItemQuantity(product._id))} />
                       </div>
                       <div className="ProductPrice" >
                         ₹{product.price * product.quantity}
                       </div>
                     </div>
                     <div className="DeleteProduct">
-                      <FontAwesomeIcon icon={faTrashCan} onClick={handleRemoveFromCart} />
+                      <FontAwesomeIcon icon={faTrashCan} onClick={() => { dispatch(removeProduct(product._id)) }} />
                     </div>
                     <hr />
                   </div>))

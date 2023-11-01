@@ -5,7 +5,16 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import "./product.css"
 import { Link } from 'react-router-dom'
+//import { useDispatch } from 'react-redux'
+//import { addProduct } from '../Redux/cartRedux'
+
 const Product = ({ item }) => {
+  //const dispatch = useDispatch();
+
+  //const handleAddToCart = () => {
+  //  dispatch(addProduct({ ...product, quantity, color, size }));
+  //}
+
   return (
     <div className='product' key={item._id}>
       <div className="circle">
@@ -13,7 +22,7 @@ const Product = ({ item }) => {
       <img className='Image' src={item.img} alt={item.name} />
       <div className="productInfo">
         <div className="productIcon">
-          <FontAwesomeIcon icon={faCartPlus} />
+          <FontAwesomeIcon icon={faCartPlus} /* onClick={handleAddToCart}  */ />
         </div>
         <div className="productIcon">
           <Link to={`/product/${item._id}`}>
