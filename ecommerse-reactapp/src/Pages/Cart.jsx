@@ -18,7 +18,6 @@ const Cart = () => {
     dispatch(removeProduct());
   }
 
-
   return (
     <div>
       <div className="Cart">
@@ -38,8 +37,8 @@ const Cart = () => {
           <div className="Bottom">
             <div className="CartInfo">
               {
-                cart.products.map(product => (
-                  <div className="CartProduct">
+                cart.cartproducts.map(product => (
+                  <div className="CartProduct" key={product._id}>
                     <div className="ProductDetail">
                       <img src={product.img} alt={product.name} />
                       <div className="Details">
@@ -61,9 +60,9 @@ const Cart = () => {
                     </div>
                     <div className="PriceDetail">
                       <div className="ProductAmountContainer">
-                        <FontAwesomeIcon icon={faMinus} onClick={() => { addProduct() }} />
+                        <FontAwesomeIcon icon={faMinus} onClick={() => (product.quantity -= 1)} />
                         {product.quantity}
-                        <FontAwesomeIcon icon={faPlus} onClick={() => { removeProduct() }} />
+                        <FontAwesomeIcon icon={faPlus} onClick={() => (product.quantity += 1)} />
                       </div>
                       <div className="ProductPrice" >
                         ₹{product.price * product.quantity}
