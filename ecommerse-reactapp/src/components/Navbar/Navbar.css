@@ -1,12 +1,12 @@
+@import "../../css-config/mixins.css";
+
 * {
   margin: 0;
   font-family: "Urbanist", sans-serif;
 }
 .navbar-container {
   height: 80px;
-  @media only screen and (max-width: 380px) {
-    display: none;
-  }
+  @include sm;
 }
 .navbar-wrapper {
   padding: 0px 20px;

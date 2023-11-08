@@ -14,6 +14,9 @@ import Navbar from "./components/Navbar/Navbar";
 import Announcement from "./components/Announcement/Announcement";
 import Shop from "./Pages/Shop/Shop";
 import Footer from "./components/Footer/Footer";
+import Success from "./Pages/Success";
+import Pay from "./Pages/Pay";
+import NotFound from "./Pages/NotFound";
 
 const App = () => {
   const isLoggedIn = false;
@@ -30,6 +33,10 @@ const App = () => {
       <Route path="/cart" element={<Cart />} />
       <Route path="/login" element={isLoggedIn ? <Navigate to="/" replace /> : <Login />} />
       <Route path="/register" element={isLoggedIn ? <Navigate to="/" replace /> : <Register />} />
+      <Route path="/success" element={<Success />} />
+      <Route path="*" element={<NotFound />} />
+      <Route path="/pay" element={<Pay />} />
+
     </Routes>
     <Footer />
 

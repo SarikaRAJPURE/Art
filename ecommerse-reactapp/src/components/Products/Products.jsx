@@ -5,7 +5,7 @@ import axios from 'axios'
 import Product from '../Product/Product';
 
 const Products = ({ cat, filters, sort }) => {
-  console.log(cat, filters, sort);
+  //console.log(cat, filters, sort);
 
   const [products, setProducts] = useState([]);
   const [filteredProducts, setfilteredProducts] = useState([]);
@@ -40,10 +40,25 @@ const Products = ({ cat, filters, sort }) => {
   }, [products, cat, filters]);
 
   useEffect(() => {
-    if (sort === "newest") {
-      setfilteredProducts((prev) =>
-        [...prev].sort((a, b) => b.createdAt - a.createdAt)
+    //console.log('sort by ' + sort)
+    if (sort === "Newest") {
+      setfilteredProducts(prev =>
+        [...prev].sort((a, b) => a.createdAt - b.createdAt)
       );
+      //(a, b) => a.createdAt - b.createdAt)
+      //{ createdAt: -1 }
+      //(a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+      //a.createdAt.localeCompare(b.createdAt)
+      /* setfilteredProducts((prev) =>
+      
+        [...prev].sort((a, b) => (b.createdAt - a.createdAt)
+          //a.createdAt.localeCompare(b.createdAt))
+          // a.createdAt - b.createdAt)
+          // console.log(a.createdAt - b.createdAt)
+          //a.createdAt.localeCompare(b.createdAt)
+          //b.createdAt - a.createdAt
+        )
+      ); */
     } else if (sort === "asc") {
       setfilteredProducts((prev) =>
         [...prev].sort((a, b) => a.price - b.price)
@@ -60,7 +75,10 @@ const Products = ({ cat, filters, sort }) => {
       {
         cat ?
           filteredProducts.map((item) => (<Product item={item} key={item._id} />))
-          : products.slice(0, 15).map((item) => (<Product item={item} key={item._id} />))
+          : products.slice(0, 20).map(
+            (item) => (<Product item={item} key={item._id} />)
+          )
+        //.sort((a, b) => (a.createdAt).localeCompare(b.createdAt))
       }
     </div>
   )

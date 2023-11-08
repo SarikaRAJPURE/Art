@@ -32,23 +32,23 @@ const ProductList = () => {
         <div className='ProductList'>
 
             <h1 className="FilterTitle">
-                Products
+                {cat}
             </h1>
             <div className="ProductFilterContainer">
                 <div className="Filter">
                     <span className="FilterText">Filter Products:</span>
-                    <select className='Select' onChange={handleFilterSelection} name="Size" id="sizeFilter">
-                        <option className='Option' value="Small">Small</option>
-                        <option className='Option' value="Medium">Medium</option>
-                        <option className='Option' value="Large">Large</option>
+                    <select className='Select' onChange={handleFilterSelection} name="size" id="sizeFilter">
+                        <option className='Option' value="S">Small</option>
+                        <option className='Option' value="M">Medium</option>
+                        <option className='Option' value="L">Large</option>
                         {/* <option className='Option' value="Featured">Featured</option>
                         <option className='Option' value="Avg. Customer Reviews">Avg. Customer Reviews</option>
                         <option className='Option' value="Newest Arrivals">Newest Arrivals</option> */}
                     </select>
-                    <select className='Select' onChange={handleFilterSelection} name="Color" id="colorFilter">
-                        <option className='Option' value="Red">Red</option>
-                        <option className='Option' value="Yellow">Yellow</option>
-                        <option className='Option' value="Pink">Pink</option>
+                    <select className='Select' onChange={handleFilterSelection} name="color" id="colorFilter">
+                        <option className='Option' value="red">Red</option>
+                        <option className='Option' value="yellow">Yellow</option>
+                        <option className='Option' value="pink">Pink</option>
                         {/* <option className='Option' value="Featured">Featured</option>
                         <option className='Option' value="Avg. Customer Reviews">Avg. Customer Reviews</option>
                         <option className='Option' value="Newest Arrivals">Newest Arrivals</option> */}

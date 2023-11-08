@@ -1,21 +1,61 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faMinus, faTrashCan } from '@fortawesome/free-solid-svg-icons'
 import "./cart.css";
 import { useSelector } from "react-redux";
 import { removeProduct, getTotal, increaseItemQuantity, decreaseItemQuantity } from '../Redux/cartRedux'
 import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom';
-//import StripeCheckout from "react-stripe-checkout"
+import { Link, useNavigate } from 'react-router-dom';
+import StripeCheckout from 'react-stripe-checkout';
+//import axios from "axios";
+import { userRequest } from "../requestMethods.js"
+//import Pay from "../Pages/Pay"
+const { STRIPE_PUBLISHABLE_KEY } = process.env;
+const publishable_key = 'pk_test_51O3p7iGAqra8ohDBySZPkhpBBLotcMG6khlNEM8n5gByocUKxxjFyXzQemmWtIn6PgzcnwsEXHNDcG9dgYhGmeA100juPQwVzw';
+console.log(publishable_key);
+//process.env.STRIPE_PUBLISHABLE_KEY;
 
 const Cart = () => {
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
+  const [stripeToken, setStripeToken] = useState(null);
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const makeRequest = async () => {
+      try {
+        debugger;
+        const res = await userRequest.post(
+          `/checkout/payment`,
+          {
+            tokenId: stripeToken.id,
+            amount: cart.total * 100,
+
+          }
+        );
+        navigate('/success', { data: res.data });
+        console.log(JSON.stringify(res.data));
+        //console.log("success");
+        // navigate('/success', { data: res.data });
+
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    stripeToken && makeRequest();
+    //console.log(stripeToken);
+  }, [stripeToken, cart.total, navigate]);
 
   useEffect(() => {
     dispatch(getTotal());
   }, /* [cart] */);
 
+  const onToken = (token) => {
+    setStripeToken(token);
+    console.log(token);
+  }
+  //console.log(stripeToken);
 
   return (
     <div>
@@ -72,10 +112,7 @@ const Cart = () => {
                     </div>
                     <hr />
                   </div>))
-
               }
-
-
             </div>
 
             <div className="CartSummary">
@@ -111,10 +148,23 @@ const Cart = () => {
                   Total ({cart.quantity} items)
                 </span>
                 <span className="SummaryItemPrice">
-                  ₹ {cart.total + 9.98 - 5.98}
+                  ₹ {parseInt((cart.total + 9.98 - 5.98).toFixed(2))}
                 </span>
               </div>
-              <button className="SummaryButton">Proceed to checkout</button>
+              {/*<Pay cartItems={cart.products} /> */}
+              <StripeCheckout
+                name="ArtGirlZ Shop"
+                /*  image="/images/logo.png" */
+                billingAddress
+                shippingAddress
+                description={`Your total is $${cart.total} `}
+                amount={cart.total * 100}
+                token={onToken}
+                stripeKey={publishable_key}
+              >
+                <button className="SummaryButton">Proceed to checkout</button>
+              </StripeCheckout>
+
             </div>
           </div>
         </div>
