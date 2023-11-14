@@ -92,10 +92,9 @@
   font-size: 30px;
   font-weight: 200;
 }
-hr {
-  background-color: lightgray;
-  border: none;
-  height: 1px;
+.CartProduct hr {
+  height: 2px;
+  border: 1px solid gray;
 }
 .CartSummary {
   flex: 1;

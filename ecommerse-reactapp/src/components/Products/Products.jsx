@@ -19,6 +19,7 @@ const Products = ({ cat, filters, sort }) => {
         );
         // console.log(res.data);
         setProducts(res.data);
+        //setProducts(res.data.reverse());
       } catch (error) { }
     };
     getProducts();
@@ -40,26 +41,33 @@ const Products = ({ cat, filters, sort }) => {
   }, [products, cat, filters]);
 
   useEffect(() => {
-    //console.log('sort by ' + sort)
+    // console.log('sort by ' + sort)
+    /*  if (sort === "Newest") {
+       setfilteredProducts(prev =>
+         [...prev].sort((a, b) => a.createdAt - b.createdAt)
+       );} */
+    //(a, b) => a.createdAt - b.createdAt)
+    //{ createdAt: -1 }
+    //(a, b) => new Date(a.createdAt) - new Date(b.createdAt)
+    //a.createdAt.localeCompare(b.createdAt)
+    /* setfilteredProducts((prev) =>
+    
+      [...prev].sort((a, b) => (b.createdAt - a.createdAt)
+        //a.createdAt.localeCompare(b.createdAt))
+        // a.createdAt - b.createdAt)
+        // console.log(a.createdAt - b.createdAt)
+        //a.createdAt.localeCompare(b.createdAt)
+        //b.createdAt - a.createdAt
+      )
+    ); */
     if (sort === "Newest") {
       setfilteredProducts(prev =>
-        [...prev].sort((a, b) => a.createdAt - b.createdAt)
-      );
-      //(a, b) => a.createdAt - b.createdAt)
-      //{ createdAt: -1 }
-      //(a, b) => new Date(a.createdAt) - new Date(b.createdAt)
-      //a.createdAt.localeCompare(b.createdAt)
-      /* setfilteredProducts((prev) =>
-      
-        [...prev].sort((a, b) => (b.createdAt - a.createdAt)
-          //a.createdAt.localeCompare(b.createdAt))
-          // a.createdAt - b.createdAt)
-          // console.log(a.createdAt - b.createdAt)
-          //a.createdAt.localeCompare(b.createdAt)
-          //b.createdAt - a.createdAt
-        )
-      ); */
-    } else if (sort === "asc") {
+        [...prev].sort((a, b) =>
+          new Date(b.createdAt) - new Date(a.createdAt)
+          //(a, b) => a.createdAt.localeCompare(b.createdAt)
+        ))
+    }
+    else if (sort === "asc") {
       setfilteredProducts((prev) =>
         [...prev].sort((a, b) => a.price - b.price)
       );

@@ -39,7 +39,7 @@ center {
   padding: 10px;
 }
 
-.RegButon {
+.loginBtn {
   width: 40%;
   border: none;
   padding: 15px 20px;
@@ -49,6 +49,17 @@ center {
   margin: 10px 10px;
 }
 
+.loginBtn:disabled,
+.loginBtn[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+.Error {
+  color: red;
+  font-size: 12px;
+}
 .Link {
   margin: 10px 0px;
   font-size: 12px;

@@ -10,16 +10,16 @@ import StripeCheckout from 'react-stripe-checkout';
 //import axios from "axios";
 import { userRequest } from "../requestMethods.js"
 //import Pay from "../Pages/Pay"
-const { STRIPE_PUBLISHABLE_KEY } = process.env;
+
 const publishable_key = 'pk_test_51O3p7iGAqra8ohDBySZPkhpBBLotcMG6khlNEM8n5gByocUKxxjFyXzQemmWtIn6PgzcnwsEXHNDcG9dgYhGmeA100juPQwVzw';
-console.log(publishable_key);
-//process.env.STRIPE_PUBLISHABLE_KEY;
+//console.log(publishable_key);
 
 const Cart = () => {
   const cart = useSelector(state => state.cart);
   const dispatch = useDispatch();
   const [stripeToken, setStripeToken] = useState(null);
   const navigate = useNavigate();
+
 
 
   useEffect(() => {
@@ -34,7 +34,7 @@ const Cart = () => {
 
           }
         );
-        navigate('/success', { data: res.data });
+        navigate('/success', { state: { data: res.data } });
         console.log(JSON.stringify(res.data));
         //console.log("success");
         // navigate('/success', { data: res.data });
@@ -111,7 +111,10 @@ const Cart = () => {
                       <FontAwesomeIcon icon={faTrashCan} onClick={() => { dispatch(removeProduct(product._id)) }} />
                     </div>
                     <hr />
-                  </div>))
+                  </div>
+
+                )
+                )
               }
             </div>
 

@@ -11,7 +11,7 @@ const Product = () => {
     const location = useLocation();
     //console.log(location.pathname.split("/")[2]);
     const id = location.pathname.split("/")[2];
-    console.log(id);
+    //console.log(id);
 
     const [product, setProduct] = useState({});
     const [quantity, setQuantity] = useState(1);
@@ -93,6 +93,7 @@ const Product = () => {
                             <button className='CartButton' onClick={handleAddToCart}>ADD TO CART</button>
 
                         </div>
+                        <div className={product.inStock ? "inStock" : "outOfStock"} ><p>In Stock</p></div>
                     </div>
                 </div>
             </div >

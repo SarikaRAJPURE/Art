@@ -5,7 +5,7 @@ import { faCaretLeft } from '@fortawesome/free-solid-svg-icons'
 //import { sliderItems } from "../data";
 import { Link } from 'react-router-dom';
 const Slider = ({ slides }) => {
-    console.log({ slides });
+    //console.log({ slides });
     const [slideIndex, setSlideIndex] = useState(0);
     const length = slides.length;
     const handleClick = (direction) => {
@@ -41,7 +41,7 @@ const Slider = ({ slides }) => {
                 ))}
 
             </div>
-            <div className="arrow" style={{ right: 10 }} onClick={() => handleClick("right")}>
+            <div className="arrow" style={{ right: 10 }} onClick={() => handleClick("right")} autoFocus>
                 <FontAwesomeIcon icon={faCaretLeft} rotation={180} />
             </div>
         </div>

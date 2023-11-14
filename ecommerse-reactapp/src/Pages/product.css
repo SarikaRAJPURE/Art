@@ -32,7 +32,7 @@
 }
 .Price {
   font-weight: 100;
-  font-size: 40px;
+  font-size: 30px;
 }
 .ColorFilterText,
 .SizeFilterText {
@@ -49,6 +49,16 @@
 .FilterSize {
   margin-left: 10px;
   padding: 5px;
+}
+.inStock {
+  color: green;
+  font-weight: bold;
+  font-size: 20px;
+}
+.outOfStock {
+  color: red;
+  font-weight: bold;
+  font-size: 20px;
 }
 .AddContainer {
   display: flex;
