@@ -48,3 +48,45 @@ export const userData = [
     "Active User": 4390,
   },
 ];
+export const userRows = [
+  {
+    id: 1,
+    userName: "Jon Snow",
+    avatar: "../profilepic.jpg",
+    email: "jon@gmail.com",
+    status: "active",
+    transaction: "$120.00",
+  },
+  {
+    id: 2,
+    userName: "Jon Snow",
+    avatar: "../profilepic.jpg",
+    email: "jon@gmail.com",
+    status: "active",
+    transaction: "$120.00",
+  },
+  {
+    id: 3,
+    userName: "Jon Snow",
+    avatar: "../profilepic.jpg",
+    email: "jon@gmail.com",
+    status: "active",
+    transaction: "$120.00",
+  },
+  {
+    id: 4,
+    userName: "Jon Snow",
+    avatar: "../profilepic.jpg",
+    email: "jon@gmail.com",
+    status: "active",
+    transaction: "$120.00",
+  },
+  {
+    id: 5,
+    userName: "Jon Snow",
+    avatar: "../profilepic.jpg",
+    email: "jon@gmail.com",
+    status: "active",
+    transaction: "$120.00",
+  },
+];
